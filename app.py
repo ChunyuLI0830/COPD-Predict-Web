@@ -120,7 +120,7 @@ if submitted:
             st.success("🟢 低风险")
             st.markdown(f"当前指标未显示明显异常。")
             
-        st.metric("慢阻肺病患病率", f"{risk_score:.1%}")
+        st.metric("慢阻肺病患病可能", f"{risk_score:.1%}")
 
     with c2:
         st.write("风险评估详情")
