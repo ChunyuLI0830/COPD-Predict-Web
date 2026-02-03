@@ -25,7 +25,7 @@ normalization_params = {
 }
 
 # 2. 模型加载
-st.set_page_config(page_title="COPD 智能辅助诊断系统", layout="wide")
+st.set_page_config(page_title="慢阻肺病早期诊断预测系统", layout="wide")
 
 @st.cache_resource
 def load_resources():
@@ -56,7 +56,7 @@ with st.sidebar.form("patient_data_form"):
                 value=float(config['mean']), 
                 format="%.2f"
             )
-    st.subheader("生物标志物")
+    st.subheader("蛋白组学")
     st.caption("请输入原始检测值")
     for col in feature_names:
         if col in normalization_params and normalization_params[col]['log']:
@@ -74,7 +74,7 @@ with st.sidebar.form("patient_data_form"):
 
 
 # 4. 预测结果展示
-st.title("COPD 风险预测系统")
+st.title("慢阻肺病早期诊断预测系统")
 
 if submitted:
     processed_data = []
@@ -120,7 +120,7 @@ if submitted:
             st.success("🟢 低风险")
             st.markdown(f"当前指标未显示明显异常。")
             
-        st.metric("COPD 患病概率", f"{risk_score:.1%}")
+        st.metric("慢阻肺病患病率", f"{risk_score:.1%}")
 
     with c2:
         st.write("风险评估详情")
