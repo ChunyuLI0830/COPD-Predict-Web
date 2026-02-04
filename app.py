@@ -29,8 +29,10 @@ st.set_page_config(page_title="慢阻肺病早期诊断预测系统", layout="wi
 
 @st.cache_resource
 def load_resources():
-    model = joblib.load('svm_model_final.pkl')
-    features = joblib.load('feature_names.pkl')
+    # model = joblib.load('svm_model_final.pkl')
+    # features = joblib.load('feature_names.pkl')
+    model = joblib.load('xgboost_model_final.pkl')
+    features = joblib.load('feature_namesv2.pkl')
     return model, features
 
 try:
