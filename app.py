@@ -127,7 +127,8 @@ if submitted:
     with c2:
         st.write("风险评估详情")
         bar_color = "red" if risk_score > 0.5 else "green"
-        st.progress(risk_score, text=f"风险指数: {risk_score:.4f}")
+        safe_score = min(float(risk_score), 1.0)
+        st.progress(safe_score, text=f"风险指数: {safe_score:.4f}")
         with st.expander("查看模型输入详情"):
             df_display = pd.DataFrame([processed_data], columns=feature_names)
             st.dataframe(df_display.style.format("{:.4f}"))
